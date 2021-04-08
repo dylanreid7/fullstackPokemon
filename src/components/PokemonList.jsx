@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import axios from "axios";
 import Pokemon from "./Pokemon";
 import CatchPokemon from "./CatchPokemon";
+import PokemonData from "../pokemonData";
 
 class PokemonList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pokemonList: [],
+      pokemonList: PokemonData,
     }
     this.getPokemon = this.getPokemon.bind(this);
     this.addCaughtPokemon = this.addCaughtPokemon.bind(this);
@@ -33,7 +34,7 @@ class PokemonList extends Component {
       <table>
         <tbody>
           {/** HINT: While the map method below currently uses props, it will need to map over something else when step 3 is completed */}
-          {this.props.pokemonList.map(pokemon => <Pokemon pokemon={pokemon} key={pokemon.id}/>)}
+          {this.props.pokemon.map(pokemon => <Pokemon pokemon={pokemon} key={pokemon.id}/>)}
         </tbody>
       </table>
       <CatchPokemon addCaughtPokemon={this.addCaughtPokemon} />
